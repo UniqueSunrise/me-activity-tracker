@@ -37,7 +37,7 @@ def get_wallet_data(wallet, proxy=None):
             unique_months = set()
 
             for item in json_data:
-                if item.get('type') == 'buyNow' and item.get('buyer') == wallet:
+                if item.get('type') == 'buyNow' and item.get('buyer') == wallet or item.get('seller') == wallet:
                     block_time = item["blockTime"]
                     date = time.strftime('%Y-%m-%d', time.gmtime(block_time))
                     month = time.strftime('%Y-%m', time.gmtime(block_time))
